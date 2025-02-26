@@ -34,8 +34,8 @@ if (localStorage.getItem("loggedIn") === "true") {
     loadWarehouse();
 }
 
-// Warehouse Data
-const warehouse = Array.from({ length: 18 }, () => Array(4).fill(null));
+// Warehouse Data (18 rows x 4 stacks)
+const warehouse = Array.from({ length: 18 * 4 }, () => Array(4).fill(null));
 
 // Load Warehouse Grid
 function loadWarehouse() {
@@ -53,6 +53,7 @@ function loadWarehouse() {
         else if (filledBoxes === 3) boxDiv.classList.add("three-filled");
         else if (filledBoxes === 4) boxDiv.classList.add("four-filled");
 
+        boxDiv.textContent = `Row ${Math.floor(i / 4) + 1}, Stack ${i % 4 + 1}`;
         boxDiv.addEventListener("click", () => openBoxDetails(i));
         warehouseDiv.appendChild(boxDiv);
     });
@@ -86,7 +87,7 @@ function searchWine() {
     document.querySelectorAll(".box").forEach((box, index) => {
         const stack = warehouse[index];
         const containsWine = stack.some(box => box && box.name.toLowerCase().includes(searchValue));
-        box.style.border = containsWine ? "3px solid red" : "1px solid black";
+        box.style.border = containsWine ? "3px solid red" : "2px solid black";
     });
 }
 
@@ -107,3 +108,4 @@ function updateStockOverview() {
         tbody.innerHTML += row;
     });
 }
+

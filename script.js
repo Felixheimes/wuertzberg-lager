@@ -40,7 +40,12 @@ const warehouse = Array.from({ length: 18 * 4 }, () => Array(4).fill(null));
 // Load Warehouse Grid
 function loadWarehouse() {
     const warehouseDiv = document.getElementById("warehouse");
-    warehouseDiv.innerHTML = "";
+    warehouseDiv.innerHTML = "";  // ✅ Clears previous data to reload properly.
+
+    if (!warehouseDiv) {
+        console.error("Warehouse container not found! Check index.html");
+        return;
+    }
 
     warehouse.forEach((stack, i) => {
         const boxDiv = document.createElement("div");
@@ -60,6 +65,7 @@ function loadWarehouse() {
 
     updateStockOverview();
 }
+
 
 // Open Box Editing Popup
 function openBoxDetails(index) {

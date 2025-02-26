@@ -3,14 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Warehouse - Wuertzberg Lager</title>
+    <title>Warehouse Management</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Wuertzberg 3D Lager Management</h1>
-    <div id="info">Click on a box to edit details.</div>
-    <canvas id="warehouseCanvas"></canvas>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <div id="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="login-error" class="error-message"></p>
+    </div>
+
+    <div id="app-container" style="display: none;">
+        <h1>Warehouse Management</h1>
+        <button onclick="logout()">Logout</button>
+        <input type="text" id="searchBox" placeholder="Search Wine..." onkeyup="searchWine()">
+        
+        <div id="warehouse"></div>
+        <h2>Stock Overview</h2>
+        <table id="stockTable">
+            <thead>
+                <tr>
+                    <th>Wine Name</th>
+                    <th>Year</th>
+                    <th>Total Bottles</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

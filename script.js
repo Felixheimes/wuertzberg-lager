@@ -1,4 +1,8 @@
-const users = { admin: "password123" }; // Example user credentials
+// User Credentials
+const users = { 
+    Felix: "Riesling", 
+    Annalena: "FinnundPaul" 
+};
 
 // Login Function
 function login() {
@@ -7,6 +11,7 @@ function login() {
 
     if (users[username] && users[username] === password) {
         localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("currentUser", username);
         document.getElementById("login-container").style.display = "none";
         document.getElementById("app-container").style.display = "block";
         loadWarehouse();
@@ -18,6 +23,7 @@ function login() {
 // Logout Function
 function logout() {
     localStorage.removeItem("loggedIn");
+    localStorage.removeItem("currentUser");
     location.reload();
 }
 

@@ -2,28 +2,62 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    overflow: hidden;
-    background-color: #ddd;
+    background-color: #f4f4f4;
 }
 
 h1 {
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    color: black;
-    text-shadow: 1px 1px 5px white;
+    margin-top: 20px;
 }
 
-#info {
-    position: absolute;
-    top: 50px;
-    width: 100%;
-    color: black;
-    font-size: 16px;
-    text-shadow: 1px 1px 5px white;
+#login-container {
+    margin-top: 100px;
 }
 
-canvas {
+input, button {
     display: block;
+    margin: 10px auto;
+    padding: 10px;
 }
 
+button {
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+}
+
+#warehouse {
+    display: grid;
+    grid-template-columns: repeat(18, 50px);
+    gap: 5px;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: gray;
+}
+
+.box.one-filled { background-color: #a8e6a2; }  /* Light Green */
+.box.two-filled { background-color: #7bd774; }  /* Medium Green */
+.box.three-filled { background-color: #4caf50; } /* Darker Green */
+.box.four-filled { background-color: #2e7d32; } /* Dark Green (Full) */
+
+#stockTable {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#stockTable th, #stockTable td {
+    border: 1px solid black;
+    padding: 10px;
+}

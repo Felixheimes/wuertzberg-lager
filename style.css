@@ -1,3 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+#login-container {
+    margin-top: 100px;
+}
+
+input, button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+}
+
+/* Warehouse Grid Layout (18 rows x 4 stacks) */
 #warehouse {
     display: grid;
     grid-template-columns: repeat(4, 80px); /* 4 stacks per row */
@@ -7,6 +37,7 @@
     max-width: 400px;
 }
 
+/* Box Styling */
 .box {
     width: 80px;
     height: 80px;
@@ -20,7 +51,20 @@
     text-align: center;
 }
 
+/* Dynamic Color Shading */
 .box.one-filled { background-color: #a8e6a2; }  /* Light Green */
 .box.two-filled { background-color: #7bd774; }  /* Medium Green */
 .box.three-filled { background-color: #4caf50; } /* Darker Green */
 .box.four-filled { background-color: #2e7d32; } /* Dark Green (Full) */
+
+/* Stock Table */
+#stockTable {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#stockTable th, #stockTable td {
+    border: 1px solid black;
+    padding: 10px;
+}

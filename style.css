@@ -27,14 +27,14 @@ button {
     color: red;
 }
 
-/* Warehouse Grid Layout (18 rows x 4 stacks) */
+/* Warehouse Grid Layout (19 rows x 9 stacks) */
 #warehouse {
     display: grid;
-    grid-template-columns: repeat(4, 80px); /* 4 stacks per row */
-    grid-template-rows: repeat(18, 80px);  /* 18 rows */
+    grid-template-columns: repeat(9, 80px); /* 9 stacks per row */
+    grid-template-rows: repeat(19, 80px);  /* 19 rows */
     gap: 10px;
     margin: 20px auto;
-    max-width: 400px;
+    max-width: 800px;
 }
 
 /* Box Styling */

@@ -34,18 +34,13 @@ if (localStorage.getItem("loggedIn") === "true") {
     loadWarehouse();
 }
 
-// Warehouse Data (18 rows x 4 stacks)
-const warehouse = Array.from({ length: 18 * 4 }, () => Array(4).fill(null));
+// Warehouse Data (19 rows x 9 stacks)
+const warehouse = Array.from({ length: 19 * 9 }, () => Array(4).fill(null));
 
 // Load Warehouse Grid
 function loadWarehouse() {
     const warehouseDiv = document.getElementById("warehouse");
-    warehouseDiv.innerHTML = "";  // ✅ Clears previous data to reload properly.
-
-    if (!warehouseDiv) {
-        console.error("Warehouse container not found! Check index.html");
-        return;
-    }
+    warehouseDiv.innerHTML = "";
 
     warehouse.forEach((stack, i) => {
         const boxDiv = document.createElement("div");
@@ -58,14 +53,13 @@ function loadWarehouse() {
         else if (filledBoxes === 3) boxDiv.classList.add("three-filled");
         else if (filledBoxes === 4) boxDiv.classList.add("four-filled");
 
-        boxDiv.textContent = `Row ${Math.floor(i / 4) + 1}, Stack ${i % 4 + 1}`;
+        boxDiv.textContent = `Row ${Math.floor(i / 9) + 1}, Stack ${i % 9 + 1}`;
         boxDiv.addEventListener("click", () => openBoxDetails(i));
         warehouseDiv.appendChild(boxDiv);
     });
 
     updateStockOverview();
 }
-
 
 // Open Box Editing Popup
 function openBoxDetails(index) {
@@ -114,4 +108,3 @@ function updateStockOverview() {
         tbody.innerHTML += row;
     });
 }
-
